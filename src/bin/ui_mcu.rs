@@ -77,6 +77,14 @@ async fn main(spawner: Spawner) {
         w.set_en(true);
     });
 
+    embassy_stm32::pac::DCACHE1.cr().write(|w| {
+        w.set_en(true);
+    });
+
+    embassy_stm32::pac::DCACHE2.cr().write(|w| {
+        w.set_en(true);
+    });
+
     // used for the touch events
     let i2c = I2c::new(
         p.I2C2,
